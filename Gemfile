@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'activeadmin'#, '1.0.0'
 gem 'airbrake', '~> 5.5'
 gem 'aws-sdk', '~> 2.3'
-gem 'bcrypt_pbkdf', '~> 1.0'
 gem 'brakeman'
 gem 'bundler-audit'
 gem 'clearance'
@@ -50,6 +49,7 @@ gem 'will_paginate-bootstrap'
 gem 'rubocop-rspec', '> 1.28'
 
 group :development do
+  gem 'bcrypt_pbkdf', '~> 1.0'
   gem 'better_errors'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'capistrano'
@@ -58,6 +58,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-sidekiq'
+  gem 'ed25519', '~> 1.2'
   gem 'guard'
   gem 'guard-coffeescript'
   gem 'guard-haml_lint'
@@ -98,9 +99,6 @@ group :development, :test do
   gem 'spinach'
   gem 'spinach-console-reporter'
   gem 'teaspoon-jasmine'
-end
-
-group :production do
 end
 
 group :development, :staging do
