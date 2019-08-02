@@ -117,4 +117,18 @@ describe 'SessionsController' do
       end
     end
   end
+
+  describe 'health' do
+    it 'must return the current timestamp when DB is accessible' do
+      get :health
+      must_respond_with :success
+      response.body.must_match Time.current.strftime('%F %H')
+    end
+
+    it 'must return status 500 when DB is inaccessible' do
+      ActiveRecord::Base.establish_connection(adapter: :postgresql, database: 'foobar')
+      get :health
+      must_respond_with :forbidden
+    end
+  end
 end
